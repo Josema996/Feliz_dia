@@ -1,0 +1,155 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('bosque.gif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: rgb(240, 146, 216);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #ff4081;
+    font-size: 3em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.hearts {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 0;
+}
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #ff4081;
+    position: relative;
+    transform: rotate(45deg);
+    animation: float 5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    background-color: #ff4081;
+    border-radius: 50%;
+}
+
+.heart::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: -25px;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(45deg);
+    }
+}
+
+.daisies img, .ice-creams img {
+    width: 150px;
+    margin: 10px;
+}
+
+.gift-button {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.gift-button:hover {
+    background-color: #e63950;
+}
+
+.hidden {
+    display: none;
+}
+
+.gift, .surprise {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.gift img {
+    width: 200px; /* Tamaño más grande del regalo */
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+.surprise img {
+    width: 300px; /* Tamaño más grande de la sorpresa */
+    animation: sparkle 2s infinite;
+}
